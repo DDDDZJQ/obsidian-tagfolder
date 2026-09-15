@@ -1,3 +1,18 @@
+## 0.19.0
+
+15th September, 2026
+
+### New features
+
+-   Added a Simplified Chinese interface. User-facing text is translated throughout the settings tab, the command palette, notices, view titles, context menus, the note lookup dialogue, the new-note template picker and the tag tree style suggestions.
+-   Added a `Language` setting at the top of the settings tab with `Auto (follow Obsidian)`, `English` and `简体中文`. `Auto` follows the Obsidian interface language and falls back to English when that language has no translation.
+-   A string without a translation falls back to its English source text, so no label can end up empty, and the plug-in language can be changed without changing the Obsidian interface language.
+
+### Digging the weeds
+
+-   Translations are stored in `i18n/` as dictionaries keyed by the English source text, so any displayed string can be located from the code that shows it.
+-   `npm run check` passes on Windows again: the Vitest alias root is resolved with `fileURLToPath`, the release-process test no longer inherits a mangled `npm_package_version`, and `package-lock.json` matches `package.json` again so `npm ci` installs reproducibly.
+
 ## 0.18.21
 
 14th August, 2026
@@ -138,9 +153,3 @@ Since 0.18.11, I have written this changelog as same as the Self-hosted LiveSync
 -   Many dependencies are updated to the latest version. And also the Svelte compiler is updated to the latest version.
 -   Now `npm run check` implemented in the package.json. Runs tsc, eslint, svelte-check at once.
 
-## Unreleased
-
-### New features
-
--   Added full Simplified Chinese localization.
--   Added a `Language` setting (Auto follows the Obsidian interface language, falling back to English when unmatched).
